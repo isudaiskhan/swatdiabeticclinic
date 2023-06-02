@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2023 at 05:27 PM
+-- Generation Time: Jun 02, 2023 at 12:37 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -52,9 +52,9 @@ CREATE TABLE `patients` (
 --
 
 INSERT INTO `patients` (`id`, `name`, `father_husband_name`, `patient_image`, `age`, `gender`, `mr_no`, `date`, `cnic_no`, `date_of_birth`, `rx`, `rx_image`, `rx_date`, `diabetic_foot`, `diabetic_foot_image`, `foot_image_date`) VALUES
-(11, 'sameer', 'khan', '', '65', 'male', '12', '2023-05-11', '87656-7890098-7', '2023-05-10', 'jhgljgjfjfhfj', '', '2023-05-09', 'kjbkghlvgkhblnb', '', '2023-05-01'),
-(12, 'sudais', 'yes', 'CEEC.gif', '13', 'male', '14', '2023-05-03', '08765-4345678-9', '2023-05-05', 'vkgfjgjfghfch', 'annualreport2018-20.png', '2023-05-16', 'ljkhhvljf tdgjvgv', 'infomgt.png', '2023-05-16'),
-(13, 'Daniel Shelton', 'Jerome Fitzgerald', '', '58', 'female', '82', '1987-08-08', '12345-6345674-5', '1972-10-04', 'Est cillum enim repr', '', '1998-09-27', 'Sit do accusamus re', '', '1974-10-05');
+(81, 'Mary Glas', 'Keelie Sanders', 'JEAS.gif', '31', 'male', '27', '1988-12-06', '87576-5765656-7', '2014-10-16', 'Qui qui ex nemo et c', '', '1999-02-20', 'Recusandae Id quia ', '', '1973-11-05'),
+(82, 'Aristotle Zamoraaaaa', 'Brynn Campbell', '30.jpg', '77', 'male', '22', '1998-08-30', '87575-7585743-4', '2014-09-28', 'Tenetur commodi itaq', 'cpec.jpg', '1995-02-16', 'Cum veritatis evenie   ', '', '1986-03-03'),
+(83, 'Ahmadssssssssss', 'khankhannnn', 'infomgt.png', '555', 'male', '766', '2023-05-10', '12515-2165127-8', '2023-05-15', 'hello my name is sudais khan shlgjscbnsbx c\r\nszxcsclhgcja', 'vc2.jpg', '2023-05-02', 'and i live in swat sah,dgahsbdlugybjkabsdx', 'IMG_20230210_225428.jpg', '2023-05-02');
 
 -- --------------------------------------------------------
 
@@ -100,7 +100,7 @@ ALTER TABLE `registration`
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `registration`

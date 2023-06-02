@@ -5,7 +5,7 @@
 <meta content="" name="keywords">
 
 <!-- Favicons -->
-<link href="assets/img/favicon.png" rel="icon">
+<link href="assets/img/favicon.ico" rel="icon">
 <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
 <!-- Google Fonts -->
@@ -40,12 +40,12 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">Swat Diabetic Clinic<span>.</span></a></h1>
+      <h1 class="logo me-auto me-lg-0"><a href="index.php">Swat Diabetic Clinic<span>.</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
 
-      <a href="login.php" class="get-started-btn scrollto">Login Page</a>
+      <a href="login.php" class="get-started-btn scrollto">LOGIN</a>
 
     </div>
   </header><!-- End Header -->
@@ -109,7 +109,7 @@
             <div class="footer-info">
               <h3>Swat Diabetic Clinic<span>.</span></h3>
               <p>
-               Saidu Group of Teaching Hospital <br>
+                Saidu Group of Teaching Hospital <br>
                 Saidu Sharif, Swat<br><br>
                 <strong>Phone:</strong> +1 5589 55488 55<br>
                 <strong>Email:</strong> info@example.com<br>

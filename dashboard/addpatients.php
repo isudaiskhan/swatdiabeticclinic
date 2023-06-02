@@ -30,51 +30,37 @@ $pimg = "patientImages/";
 $rximg = "rxImages/";
 $footimg = "diabeticImages/";
 
-
-if(empty($patient_image)){
-  $query = "insert into patients(name,father_husband_name,patient_image,age,gender,mr_no,date,cnic_no,date_of_birth,rx,rx_image,rx_date,diabetic_foot,diabetic_foot_image,foot_image_date)values('$name','$father_husband_name','','$age','$gender','$mr_no','$date','$cnic_no','$date_of_birth','$rx','$rx_image','$rx_date','$diabetic_foot','$diabetic_foot_image','$foot_image_date')";
+if(empty($patient_image) && empty($rx_image) && empty($diabetic_foot_image)){
+  $query = "insert into patients(name,father_husband_name,age,gender,mr_no,date,cnic_no,date_of_birth,rx,rx_date,diabetic_foot,foot_image_date,patient_image,rx_image,diabetic_foot_image)values('$name','$father_husband_name','$age','$gender','$mr_no','$date','$cnic_no','$date_of_birth','$rx','$rx_date','$diabetic_foot','$foot_image_date','','','')";
   $run = mysqli_query($link, $query);
+
+}elseif(empty($patient_image) && empty($rx_image)){
+  $query = "insert into patients(name,father_husband_name,age,gender,mr_no,date,cnic_no,date_of_birth,rx,rx_date,diabetic_foot,diabetic_foot_image,foot_image_date,patient_image,rx_image)values('$name','$father_husband_name','$age','$gender','$mr_no','$date','$cnic_no','$date_of_birth','$rx','$rx_date','$diabetic_foot','$diabetic_foot_image','$foot_image_date','','')";
+  $run = mysqli_query($link, $query) && move_uploaded_file($_FILES["diabetic_foot_image"]["tmp_name"],$footimg.$diabetic_foot_image);;
+}elseif(empty($patient_image) && empty($diabetic_foot_image)){
+    $query = "insert into patients(name,father_husband_name,age,gender,mr_no,date,cnic_no,date_of_birth,rx,rx_image,rx_date,diabetic_foot,foot_image_date,patient_image,diabetic_foot_image)values('$name','$father_husband_name','$age','$gender','$mr_no','$date','$cnic_no','$date_of_birth','$rx','$rx_image','$rx_date','$diabetic_foot','$foot_image_date','','')";
+    $run = mysqli_query($link, $query) && move_uploaded_file($_FILES["rx_image"]["tmp_name"],$rximg.$rx_image);
+}elseif(empty($rx_image) && empty($diabetic_foot_image)){
+    $query = "insert into patients(name,father_husband_name,patient_image,age,gender,mr_no,date,cnic_no,date_of_birth,rx,rx_date,diabetic_foot,foot_image_date,rx_image,diabetic_foot_image)values('$name','$father_husband_name','$patient_image','$age','$gender','$mr_no','$date','$cnic_no','$date_of_birth','$rx','$rx_date','$diabetic_foot','$foot_image_date','','')";
+    $run = mysqli_query($link, $query) && move_uploaded_file($_FILES["patient_image"]["tmp_name"],$pimg.$patient_image);  
+}elseif(empty($patient_image)){
+     $query = "insert into patients(name,father_husband_name,age,gender,mr_no,date,cnic_no,date_of_birth,rx,rx_image,rx_date,diabetic_foot,diabetic_foot_image,foot_image_date,patient_image)values('$name','$father_husband_name','$age','$gender','$mr_no','$date','$cnic_no','$date_of_birth','$rx','$rx_image','$rx_date','$diabetic_foot','$diabetic_foot_image','$foot_image_date','')";
+    $run = mysqli_query($link, $query) && move_uploaded_file($_FILES["rx_image"]["tmp_name"],$rximg.$rx_image) && move_uploaded_file($_FILES["diabetic_foot_image"]["tmp_name"],$footimg.$diabetic_foot_image);
+}elseif(empty($rx_image)){
+  $query = "insert into patients(name,father_husband_name,patient_image,age,gender,mr_no,date,cnic_no,date_of_birth,rx,rx_date,diabetic_foot,diabetic_foot_image,foot_image_date,rx_image)values('$name','$father_husband_name','$patient_image','$age','$gender','$mr_no','$date','$cnic_no','$date_of_birth','$rx','$rx_date','$diabetic_foot','$diabetic_foot_image','$foot_image_date','')";
+  $run = mysqli_query($link, $query) && move_uploaded_file($_FILES["patient_image"]["tmp_name"],$pimg.$patient_image) && move_uploaded_file($_FILES["diabetic_foot_image"]["tmp_name"],$footimg.$diabetic_foot_image);
+}elseif(empty($diabetic_foot_image)){
+  $query = "insert into patients(name,father_husband_name,patient_image,age,gender,mr_no,date,cnic_no,date_of_birth,rx,rx_image,rx_date,diabetic_foot,foot_image_date,diabetic_foot_image)values('$name','$father_husband_name','$patient_image','$age','$gender','$mr_no','$date','$cnic_no','$date_of_birth','$rx','$rx_image','$rx_date','$diabetic_foot','$foot_image_date','')";
+  $run = mysqli_query($link, $query) && move_uploaded_file($_FILES["patient_image"]["tmp_name"],$pimg.$patient_image) && move_uploaded_file($_FILES["rx_image"]["tmp_name"],$rximg.$rx_image);
+
 }else{
   $query = "insert into patients(name,father_husband_name,patient_image,age,gender,mr_no,date,cnic_no,date_of_birth,rx,rx_image,rx_date,diabetic_foot,diabetic_foot_image,foot_image_date)values('$name','$father_husband_name','$patient_image','$age','$gender','$mr_no','$date','$cnic_no','$date_of_birth','$rx','$rx_image','$rx_date','$diabetic_foot','$diabetic_foot_image','$foot_image_date')";
-  $run = mysqli_query($link, $query) && move_uploaded_file($_FILES["patient_image"]["tmp_name"],$pimg.$patient_image);
-
+  $run = mysqli_query($link, $query) && move_uploaded_file($_FILES["patient_image"]["tmp_name"],$pimg.$patient_image) && move_uploaded_file($_FILES["rx_image"]["tmp_name"],$rximg.$rx_image) && move_uploaded_file($_FILES["diabetic_foot_image"]["tmp_name"],$footimg.$diabetic_foot_image);
 }
-
-
-// if(empty($rx_image)){
-//   $query001 = "insert into patients(name,father_husband_name,patient_image,age,gender,mr_no,date,cnic_no,date_of_birth,rx,rx_image,rx_date,diabetic_foot,diabetic_foot_image,foot_image_date)values('$name','$father_husband_name','','$age','$gender','$mr_no','$date','$cnic_no','$date_of_birth','$rx','','$rx_date','$diabetic_foot','$diabetic_foot_image','$foot_image_date')";
-//   $run001 = mysqli_query($link, $query);
-// }else{
-//   $query001 = "insert into patients(name,father_husband_name,patient_image,age,gender,mr_no,date,cnic_no,date_of_birth,rx,rx_image,rx_date,diabetic_foot,diabetic_foot_image,foot_image_date)values('$name','$father_husband_name','$patient_image','$age','$gender','$mr_no','$date','$cnic_no','$date_of_birth','$rx','$rx_image','$rx_date','$diabetic_foot','$diabetic_foot_image','$foot_image_date')";
-//   $run001 = mysqli_query($link, $query)  && move_uploaded_file($_FILES["rx_image"]["tmp_name"],$rximg.$rx_image);
-
-// }
-
-
-
-
-// if(empty($diabetic_foot_image)){
-//   $query02 =  "insert into patients(name,father_husband_name,patient_image,age,gender,mr_no,date,cnic_no,date_of_birth,rx,rx_image,rx_date,diabetic_foot,diabetic_foot_image,foot_image_date)values('$name','$father_husband_name','','$age','$gender','$mr_no','$date','$cnic_no','$date_of_birth','$rx','$rx_image','$rx_date','$diabetic_foot','','$foot_image_date')";
-//   $run02 = mysqli_query($link, $query);
-
-// }else{
-//   $query02 = "insert into patients(name,father_husband_name,patient_image,age,gender,mr_no,date,cnic_no,date_of_birth,rx,rx_image,rx_date,diabetic_foot,diabetic_foot_image,foot_image_date)values('$name','$father_husband_name','$patient_image','$age','$gender','$mr_no','$date','$cnic_no','$date_of_birth','$rx','$rx_image','$rx_date','$diabetic_foot','$diabetic_foot_image','$foot_image_date')";
-//   $run02 = mysqli_query($link, $query) && move_uploaded_file($_FILES["diabetic_foot_image"]["tmp_name"],$footimg.$diabetic_foot_image);
-// }
-
-
-// echo "My name is $name and my contact is $contact and my address is $address and my email is $email and my password is $password   ";
-
-
-   
-
-
-     
 
 
     if($run){
         echo "<script>
-
         var Toast = Swal.mixin({
           toast: true,
           position: 'top-end',
@@ -91,8 +77,6 @@ if(empty($patient_image)){
 
     }else{
         echo "Data Error :".mysqli_error($link);
-
-
 
 }
 
