@@ -1,0 +1,56 @@
+
+
+
+.profile_pic {
+    width: 200px;
+    max-height: 200px;
+    display: inline-block;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .file-upload {
+    display: none;
+  }
+  
+  .circle {
+    border-radius: 100% !important;
+    overflow: hidden;
+    width: 90px;
+    height: 90px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    top: 0px;
+    position: relative;
+    box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
+  
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .p-image {
+    position: absolute;
+    top: 60%;
+    left: 81%;
+    color: #666666;
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  }
+  
+  .p-image:hover {
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  }
+  
+  .upload-button {
+    font-size: 1.2em;
+  }
+  
+  .upload-button:hover {
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+    color: #999;
+  }
+  .pos-rel {
+    position: relative;
+  }
