@@ -10,30 +10,31 @@
 
     <?php
 
-  if (isset($_POST["addpatients"])) {
-    $name = $_POST["name"];
-    $father_husband_name = $_POST["father_husband_name"];
-    $patient_image = $_FILES["patient_image"]["name"];
-    $age = $_POST["age"];
-    $gender = $_POST["gender"];
-    $mr_no = $_POST["mr_no"];
-    $date = $_POST["date"];
-    $cnic_no = $_POST["cnic_no"];
-    $date_of_birth = $_POST["date_of_birth"];
+    if (isset($_POST["addpatients"])) {
+        $name = $_POST["name"];
+        $father_husband_name = $_POST["father_husband_name"];
+        $patient_image = $_FILES["patient_image"]["name"];
+        $age = $_POST["age"];
+        $gender = $_POST["gender"];
+        $mr_no = $_POST["mr_no"];
+        $date = $_POST["date"];
+        $cnic_no = $_POST["cnic_no"];
+        $date_of_birth = $_POST["date_of_birth"];
+        $address = $_POST["address"];
 
-    if (empty($patient_image)) {
-      $query = "INSERT INTO patients (name, father_husband_name, age, gender, mr_no, date, cnic_no, date_of_birth, patient_image) VALUES ('$name', '$father_husband_name', '$age', '$gender', '$mr_no', '$date', '$cnic_no', '$date_of_birth', '$patient_image')";
-      $run = mysqli_query($link, $query);
-    } else {
-      $query = "INSERT INTO patients (name, father_husband_name, patient_image, age, gender, mr_no, date, cnic_no, date_of_birth) VALUES ('$name', '$father_husband_name', '$patient_image', '$age', '$gender', '$mr_no', '$date', '$cnic_no', '$date_of_birth')";
-      $run = mysqli_query($link, $query) && move_uploaded_file($_FILES["patient_image"]["tmp_name"], "patientImages/" . $patient_image);
-    }
+        if (empty($patient_image)) {
+            $query = "INSERT INTO patients (name, father_husband_name, age, gender, mr_no, date, cnic_no, date_of_birth, patient_image,address) VALUES ('$name', '$father_husband_name', '$age', '$gender', '$mr_no', '$date', '$cnic_no', '$date_of_birth', '$patient_image','$address')";
+            $run = mysqli_query($link, $query);
+        } else {
+            $query = "INSERT INTO patients (name, father_husband_name, patient_image, age, gender, mr_no, date, cnic_no, date_of_birth, address) VALUES ('$name', '$father_husband_name', '$patient_image', '$age', '$gender', '$mr_no', '$date', '$cnic_no', '$date_of_birth', '$address')";
+            $run = mysqli_query($link, $query) && move_uploaded_file($_FILES["patient_image"]["tmp_name"], "patientImages/" . $patient_image);
+        }
 
 
 
 
-    if ($run) {
-      echo "<script>
+        if ($run) {
+            echo "<script>
         var Toast = Swal.mixin({
           toast: true,
           position: 'top-end',
@@ -48,13 +49,13 @@
 
         </script>";
 
-    } else {
-      echo "Data Error :" . mysqli_error($link);
+        } else {
+            echo "Data Error :" . mysqli_error($link);
+
+        }
 
     }
-
-  }
-  ?>
+    ?>
 
 
 
@@ -93,37 +94,43 @@
                         <form id="quickForm" action="addpatients.php" method="POST" enctype="multipart/form-data">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="form-group col-4">
+                                    <div class="form-group col-12">
+                                        <label for="k" class="text-center d-block">Patient Image</label>
+                                        <div class="row justify-content-center">
+                                            <div class="small-12 medium-2 large-2 columns pos-rel">
+                                                <div class="circle">
+                                                    <img class="profile_pic" src=" ../../../assets/img/user-icon.jpg">
+                                                </div>
+                                                <div class="p-image">
+                                                    <i class="fa fa-camera upload-button"></i>
+                                                    <input class="file-upload" type="file" accept="image/*"
+                                                        name="patient_image" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="form-group col-5">
                                         <label for="a">Name</label>
                                         <input type="text" name="name" class="form-control" id="a"
-                                            placeholder="Enter Your Name">
+                                            placeholder="Enter Name">
                                     </div>
 
 
                                     <div class="form-group col-4">
                                         <label for="b">Father/Husband Name</label>
                                         <input type="text" name="father_husband_name" class="form-control" id="b"
-                                            placeholder="Enter Your Father/husband Name">
-                                    </div><br><br><br><br>
-
-                                    <div class="form-group col-4">
-                                        <label for="k">Patient Image</label>
-                                        <input type="file" name="patient_image" class="form-control" id="k">
+                                            placeholder="Enter Father/husband Name">
                                     </div>
-
-
-
-                                    <div class="form-group col-6">
-                                        <label for="c">Age</label>
-                                        <input type="number" name="age" class="form-control" id="c"
-                                            placeholder="Enter Your Age">
+                                    <div class="form-group col-3">
+                                        <label for="f">MR NO</label>
+                                        <input type="number" name="mr_no" class="form-control" id="f"
+                                            placeholder="Enter MR NO">
                                     </div>
-
-
-
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-3">
                                         <div class=" mb-4">
-                                            <label for="d" class="form-label">Select Your
+                                            <label for="d" class="form-label">Select
                                                 Gender</label>&nbsp;&nbsp;&nbsp;
                                             <br>
                                             <div class="form-check form-check-inline">
@@ -139,54 +146,48 @@
                                         </div>
                                     </div>
 
-
-
-
-                                    <div class="form-group col-6">
-                                        <label for="f">MR NO</label>
-                                        <input type="number" name="mr_no" class="form-control" id="f"
-                                            placeholder="Enter Your MR NO">
+                                    <div class="form-group col-3">
+                                        <label for="Age">Age</label>
+                                        <input type="number" name="age" class="form-control" id="c"
+                                            placeholder="Enter Age">
                                     </div>
 
 
 
+                                    <div class="form-group col-6">
+                                        <label for="Date OF Birth">Date OF Birth </label>
+                                        <input type="date" name="date_of_birth" class="form-control" id="i"
+                                            placeholder="Enter Date OF Birth">
+                                    </div>
+
+
 
                                     <div class="form-group col-6">
-                                        <label for="g">Date</label>
+                                        <label for="Date">Date</label>
                                         <input type="date" name="date" class="form-control" id="g"
-                                            placeholder="Enter Your Date">
+                                            value="<?php echo date('Y-m-d'); ?>" placeholder="Enter Date">
                                     </div>
 
 
 
                                     <div class="form-group col-6">
-                                        <label for="h">CNIC NO</label>
+                                        <label for="CNIC">CNIC NO</label>
                                         <input type="text" name="cnic_no" class="form-control"
                                             data-inputmask="'mask': '99999-9999999-9'" placeholder="XXXXX-XXXXXXX-X"
                                             id="h">
                                     </div>
 
 
-                                    <div class="form-group col-6">
-                                        <label for="i">Date OF Birth </label>
-                                        <input type="date" name="date_of_birth" class="form-control" id="i"
-                                            placeholder="Enter Your Date OF Birth">
+                                    <div class="form-group col-12">
+                                        <label for="Address">Address</label>
+                                        <textarea name="address" class="form-control" placeholder="Enter Address"
+                                            rows="5"></textarea>
                                     </div>
 
 
 
 
-
-
-
-
-
-
-
-
                                 </div>
-
-
 
 
 
@@ -215,17 +216,17 @@
 </div>
 
 <script>
-$(":input").inputmask();
+    $(":input").inputmask();
 
-$(document).ready(function() {
-    var t = $('#summernote').summernote({
-        height: 200,
-        focus: true
+    $(document).ready(function () {
+        var t = $('#summernote').summernote({
+            height: 200,
+            focus: true
+        });
+        $("#btn").click(function () {
+            $('div.note-editable').height(150);
+        });
     });
-    $("#btn").click(function() {
-        $('div.note-editable').height(150);
-    });
-});
 </script>
 
 

@@ -1,38 +1,7 @@
 <?php require_once 'header.php' ?>
 
 
-<meta content="" name="description">
-<meta content="" name="keywords">
 
-<!-- Favicons -->
-<link href="assets/img/favicon.ico" rel="icon">
-<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-<!-- Google Fonts -->
-<link
-  href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-  rel="stylesheet">
-
-<!-- Vendor CSS Files -->
-<link href="assets/vendor/aos/aos.css" rel="stylesheet">
-<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-<link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-<!-- Template Main CSS File -->
-<link href="assets/css/style.css" rel="stylesheet">
-
-<!-- =======================================================
-  * Template Name: Gp
-  * Updated: Mar 10 2023 with Bootstrap v5.2.3
-  * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
 
 <body>
 
@@ -44,8 +13,16 @@
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
+      <?php
+      if (!isset($_SESSION["email"]) && !isset($_SESSION["password"])) {
+        echo '  <a href="login.php" class="get-started-btn scrollto">LOGIN</a>';
 
-      <a href="login.php" class="get-started-btn scrollto">LOGIN</a>
+      } else {
+        echo '  <a href="/dashboard" class="get-started-btn scrollto">Dashboard</a>';
+      }
+      ?>
+
+
 
     </div>
   </header><!-- End Header -->
@@ -83,12 +60,27 @@
             <h3>Welcome to Swat Diabetic Clinic.</h3>
 
             <p>
-              The online home of Dr. Muhammad Yaqoob, a renowned consultant diabetologist, endocrinologist, and
-              internist. With a focus on diabetes care, Dr. Yaqoob provides expert diagnosis, treatment, and management
-              for patients with diabetes, endocrine disorders, and metabolic conditions. With a wealth of qualifications
-              including FCPS in Diabetes, Endocrine, and Metabolic Disorders, as well as FCPS in Internal Medicine, Dr.
-              Yaqoob is dedicated to delivering comprehensive and personalized care. Visit our website to learn more
+              The online home of Dr. Muhammad Yaqoob, a renowned consultant diabetologist,
+              endocrinologist, and
+              internist. With a focus on diabetes care, Dr. Yaqoob provides expert diagnosis, treatment,
+              and management
+              for patients with diabetes, endocrine disorders, and metabolic conditions. With a wealth of
+              qualifications
+              including FCPS in Diabetes, Endocrine, and Metabolic Disorders, as well as FCPS in Internal
+              Medicine, Dr.
+              Yaqoob is dedicated to delivering comprehensive and personalized care. Visit our website to
+              learn more
               about our services and schedule an appointment with Dr. Yaqoob at Swat Diabetic Clinic.
+            </p>
+            <p> When it comes to the management of diabetic foot, Dr. Muhammad Yaqoob at Swat Diabetic
+              Clinic is dedicated to providing specialized care. With a deep understanding of the unique
+              challenges faced by individuals with diabetes, Dr. Yaqoob offers expert diagnosis,
+              treatment, and preventive measures to ensure optimal foot health. From comprehensive
+              evaluations to advanced wound care techniques, Dr. Yaqoob's approach emphasizes early
+              intervention and customized treatment plans to minimize the risk of complications and
+              promote healing. Trust in Dr. Yaqoob's expertise to receive compassionate care and effective
+              solutions for diabetic foot concerns.
+
             </p>
           </div>
         </div>

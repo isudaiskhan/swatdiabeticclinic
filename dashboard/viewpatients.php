@@ -19,102 +19,64 @@
     </section>
 
     <?php
-  if (isset($_GET["skDelId"])) {
-    $user_id = $_GET["skDelId"];
+    if (isset($_GET["id"])) {
+        $user_id = $_GET["id"];
 
-    // query for all image name start 
-    $qselect = "select * from patients where id = '$user_id'";
-    $qrun = mysqli_query($link, $qselect);
-    $qfetch = mysqli_fetch_array($qrun);
-    $patient_img = $qfetch["patient_image"];
-    $rx_img = $qfetch["rx_image"];
-    $diabatic_img = $qfetch["diabetic_foot_image"];
-    // query for all image name end
-  
+        //get data from patients table
+        $qselect = "SELECT * FROM patients WHERE id = '$user_id'";
+        $qrun = mysqli_query($link, $qselect);
+        $qfetch = mysqli_fetch_array($qrun);
+        $patient_img = $qfetch["patient_image"];
 
 
-
-
-    //  Selection images names query start
-    $SImgQuery = " select * from patients where id  = '$user_id'";
-    $ImgQueryRun = mysqli_query($link, $SImgQuery);
-    $runQuery = mysqli_fetch_array($ImgQueryRun);
-
-    // echo "<pre>";
-    // print_r($runQuery);
-//  Selection images names query end
-  
+        //get data from patient_history table
+        $qselect = "SELECT * FROM patient_history WHERE patient_id = '$user_id'";
+        $qrun = mysqli_query($link, $qselect);
+        $patient_history_fetch = mysqli_fetch_array($qrun);
+        $patient_history_img = $patient_history_fetch["image"];
 
 
 
-    // if(empty($img_name)){
-    //     $queryok = "delete from patients where id = '$user_id'";
-    //     $fullexe = mysqli_query($link, $queryok);
-  
-    if ($runQuery["patient_image"] == "" && $runQuery["rx_image"] == "" && $runQuery["diabetic_foot_image"] == "") {
-      $queryok = "delete from patients where id = '$user_id'";
-      $fullexe = mysqli_query($link, $queryok);
-    } elseif ($runQuery["patient_image"] == "" && $runQuery["rx_image"] == "") {
-      $queryok = "delete from patients where id = '$user_id'";
-      $fullexe = mysqli_query($link, $queryok) && unlink("diabeticImages/" . $diabatic_img);
+
+        $deleteQuery = "DELETE FROM patients WHERE id = '$user_id'";
+        $res = mysqli_query($link, $deleteQuery);
+
+        $deleteQuery = "DELETE FROM patient_history WHERE patient_id = '$user_id'";
+        $res = mysqli_query($link, $deleteQuery);
+
+        if (empty($patient_img)) {
+            unlink("patientImages/" . $patient_img);
+        }
+        if (empty($patient_history_img)) {
+            if ($patient_history_fetch["is_rx"]) {
+                unlink("rxImages/" . $patient_history_img);
+            } else {
+                unlink("diabeticImages/" . $patient_history_img);
+            }
+
+        }
 
 
-    } elseif ($runQuery["patient_image"] == "" && $runQuery["diabetic_foot_image"] == "") {
-      $queryok = "delete from patients where id = '$user_id'";
-      $fullexe = mysqli_query($link, $queryok) && unlink("rxImages/" . $rx_img);
-
-    } elseif ($runQuery["rx_image"] == "" && $runQuery["diabetic_foot_image"] == "") {
-      $queryok = "delete from patients where id = '$user_id'";
-      $fullexe = mysqli_query($link, $queryok) && unlink("patientImages/" . $patient_img);
-
-    } elseif ($runQuery["patient_image"] == "") {
-      $queryok = "delete from patients where id = '$user_id'";
-      $fullexe = mysqli_query($link, $queryok) && unlink("rxImages/" . $rx_img) && unlink("diabeticImages/" . $diabatic_img);
-
-    } elseif ($runQuery["rx_image"] == "") {
-      $queryok = "delete from patients where id = '$user_id'";
-      $fullexe = mysqli_query($link, $queryok) && unlink("patientImages/" . $patient_img) && unlink("diabeticImages/" . $diabatic_img);
-
-
-    } elseif ($runQuery["diabetic_foot_image"] == "") {
-      $queryok = "delete from patients where id = '$user_id'";
-      $fullexe = mysqli_query($link, $queryok) && unlink("patientImages/" . $patient_img) && unlink("rxImages/" . $rx_img);
-
-    } else {
-      $queryok = "delete from patients where id = '$user_id'";
-      $fullexe = mysqli_query($link, $queryok) && unlink("patientImages/" . $patient_img) && unlink("rxImages/" . $rx_img) && unlink("diabeticImages/" . $diabatic_img);
-
-    }
-
-    // if(empty($img_name)){
-    //   $queryok = "delete from patients where id = '$user_id'";
-    //   $fullexe = mysqli_query($link, $queryok);
-  
-
-    // }else{
-  
-    //   $queryok = "delete from patients where id = '$user_id'";
-    //   $fullexe = mysqli_query($link, $queryok) && unlink("patientImages/". $img_name);
-  
-    // }
-  
+        // if(empty($img_name)){
+    
 
 
 
-    if ($fullexe) {
-      echo '<div class="alert alert-success alert-dismissible" role="alert">
+
+        if ($res) {
+            echo '<div class="alert alert-success alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <strong>Dear User!</strong> Record Deleted Successfully .
     </div>';
-      // header("Refresh:1; url=viewpatients.php");
-    } else {
-      echo "error" . mysqli_error($link);
+            // header("Refresh:1; url=viewpatients.php");
+        } else {
+            echo "error" . mysqli_error($link);
+        }
+
     }
 
-  }
 
-
-  ?>
+    ?>
 
 
 
@@ -142,6 +104,8 @@
 
                                         <th>Date</th>
                                         <th>CNIC No</th>
+                                        <th>Address</th>
+                                        <th>History</th>
 
 
                                         <th>Status</th>
@@ -152,89 +116,105 @@
 
                                     <?php
 
-                  $query = "select * from patients";
-                  $run = mysqli_query($link, $query);
-                  $sno = 1;
-                  while ($data = mysqli_fetch_assoc($run)) { ?>
+                                    $query = "select * from patients";
+                                    $run = mysqli_query($link, $query);
+                                    $sno = 1;
+                                    while ($data = mysqli_fetch_assoc($run)) { ?>
 
-                                    <tr>
-                                        <td>
-                                            <?php echo $sno++; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $data['mr_no']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $data['name']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $data['father_husband_name']; ?>
-                                        </td>
-                                        <td>
-                                            <?php if (empty($data['patient_image'])) {
-                          echo "<b style='color:red'> Image Not Uploaded </b>";
-                        } else { ?>
+                                        <tr>
+                                            <td>
+                                                <?php echo $sno++; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $data['mr_no']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $data['name']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $data['father_husband_name']; ?>
+                                            </td>
+                                            <td>
+                                                <?php if (empty($data['patient_image'])) {
+                                                    echo "<b style='color:red'> Image Not Uploaded </b>";
+                                                } else { ?>
 
-                                            <img src="patientImages/<?php
-                          echo $pimage = $data['patient_image'];
+                                                    <img src="patientImages/<?php
+                                                    echo $pimage = $data['patient_image'];
 
-                          ?>" width="100px" height="50px" />
-                                            <?php } ?>
+                                                    ?>" width="100px" height="50px" />
+                                                <?php } ?>
 
-                                        </td>
+                                            </td>
 
-                                        <td>
-                                            <?php echo $data['date_of_birth']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $data['age']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $data['gender']; ?>
-                                        </td>
+                                            <td>
+                                                <?php echo $data['date_of_birth']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $data['age']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $data['gender']; ?>
+                                            </td>
 
-                                        <td>
-                                            <?php echo $data['date']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $data['cnic_no']; ?>
-                                        </td>
+                                            <td>
+                                                <?php echo $data['date']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $data['cnic_no']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $data['address']; ?>
+                                            </td>
+
+                                            <td class="display-flex">
+                                                <a href="addRxHistory.php?id=<?php echo $data['id']; ?> "
+                                                    class="btn btn-sm btn-primary mb-2"> Add Rx
+                                                    History</a>
+                                                <a href="addFootHistory.php?id=<?php echo $data['id']; ?> "
+                                                    class="btn btn-sm btn-primary mb-2"> Add Foot
+                                                    History</a>
+                                                <a href="viewPatientsHistory.php?id=<?php echo $data['id']; ?>"
+                                                    class="btn btn-sm btn-secondary"> View
+                                                    History</a>
+                                            </td>
 
 
 
 
-                                        <td>
-                                            <div class="margin">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-info">Action</button>
-                                                    <button type="button"
-                                                        class="btn btn-info dropdown-toggle dropdown-icon"
-                                                        data-toggle="dropdown">
-                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                    </button>
-                                                    <div class="dropdown-menu" role="menu">
-                                                        <a class="dropdown-item"
-                                                            href="Edit.php?skDelId=<?php echo $data['id']; ?>"><i
-                                                                class="fa fa-pencil" style="color:blue"></i>
-                                                            EDIT</a><br>
-                                                        <a class="dropdown-item"
-                                                            href="viewpatients.php?skDelId=<?php echo $data['id']; ?>"
-                                                            onclick="return confirm('Are you Sure You Want to delete this?')"><i
-                                                                class="fa fa-trash" style="color:red"></i>
-                                                            DELETE</a><br>
-                                                        <a class="dropdown-item"
-                                                            href="viewrecord.php?skDelId=<?php echo $data['id']; ?>"><i
-                                                                class="fa fa-eye" style="color:orange"></i> VIEW</a>
-                                                        <div class="dropdown-divider"></div>
+
+                                            <td>
+                                                <div class="margin">
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-info">Action</button>
+                                                        <button type="button"
+                                                            class="btn btn-info dropdown-toggle dropdown-icon"
+                                                            data-toggle="dropdown">
+                                                            <span class="sr-only">Toggle Dropdown</span>
+                                                        </button>
+                                                        <div class="dropdown-menu" role="menu">
+                                                            <a class="dropdown-item"
+                                                                href="Edit.php?id=<?php echo $data['id']; ?>"><i
+                                                                    class="fa fa-pencil" style="color:blue"></i>
+                                                                EDIT</a><br>
+                                                            <a class="dropdown-item"
+                                                                href="viewpatients.php?id=<?php echo $data['id']; ?>"
+                                                                onclick="return confirm('Are you Sure You Want to delete this?')"><i
+                                                                    class="fa fa-trash" style="color:red"></i>
+                                                                DELETE</a><br>
+                                                            <a class="dropdown-item"
+                                                                href="viewPatientsHistory.php?id=<?php echo $data['id']; ?>"><i
+                                                                    class="fa fa-eye" style="color:orange"></i> VIEW</a>
+                                                            <div class="dropdown-divider"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </td>
+                                            </td>
 
 
 
 
-                                    </tr>
+                                        </tr>
                                     <?php } ?>
 
                                 </tbody>
