@@ -1,7 +1,6 @@
 <?php require_once 'header.php' ?>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
+
 
 
 
@@ -11,10 +10,8 @@
 
     <?php
 
-  if (isset($_GET["skDelId"])) {
-    $user_id = $_GET["skDelId"];
-
-
+  if (isset($_GET["id"])) {
+    $user_id = $_GET["id"];
 
 
 
@@ -22,28 +19,10 @@
     $qselect = "select * from patients where id = '$user_id'";
     $qrun = mysqli_query($link, $qselect);
     $qfetch = mysqli_fetch_assoc($qrun);
-    // print_r($qfetch);
+ 
   
 
 
-    //     $patient_img = $qfetch["patient_image"];
-//     $rx_img = $qfetch["rx_image"];
-//     $diabatic_img = $qfetch["diabetic_foot_image"];
-//     // query for all image name end
-  
-
-
-
-
-    // //  Selection images names query start
-//       $SImgQuery = " select * from patients where id  = '$user_id'";
-//       $ImgQueryRun = mysqli_query($link,$SImgQuery);
-//       $runQuery = mysqli_fetch_array($ImgQueryRun);
-  
-
-
-    // }else{
-//     echo "error" .mysqli_error($link);
   }
 
   ?>
@@ -69,6 +48,7 @@
     $mr_no = $_POST["mr_no"];
     $date = $_POST["date"];
     $cnic_no = $_POST["cnic_no"];
+    $address = $_POST["address"];
     $date_of_birth = $_POST["date_of_birth"];
 
     $pimg = "patientImages/";
@@ -76,7 +56,7 @@
 
     $patient_image = $_FILES["patient_image"]["name"];
 
-    $queryrun = "UPDATE patients SET name = '$name', father_husband_name = '$father_husband_name', age = '$age', gender = '$gender', mr_no = '$mr_no', date = '$date', cnic_no = '$cnic_no', date_of_birth = '$date_of_birth'";
+    $queryrun = "UPDATE patients SET name = '$name', father_husband_name = '$father_husband_name', age = '$age', gender = '$gender', mr_no = '$mr_no', date = '$date', cnic_no = '$cnic_no', date_of_birth = '$date_of_birth', address = '$address'";
 
     if (!empty($patient_image)) {
       $patient_image_path = "patientImages/" . $patient_image;
@@ -135,7 +115,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form id="quickForm" action="Edit.php?skDelId=<?php echo $_GET["skDelId"] ?>" method="POST"
+                        <form id="quickForm" action="Edit.php?id=<?php echo $_GET["id"] ?>" method="POST"
                             enctype="multipart/form-data">
                             <div class="card-body">
                                 <div class="row">
@@ -175,24 +155,6 @@
                                         <input type="number" value="<?php echo $qfetch['mr_no']; ?>" name="mr_no"
                                             class="form-control" id="f" placeholder="Enter Your MR NO">
                                     </div>
-
-
-
-
-
-
-
-                                    <!-- <div class="form-group col-4">
-                    <label for="k">Patient Image</label>
-                    <input type="file" name="patient_image" class="form-control" id="k">
-                  </div>
- -->
-
-
-
-
-
-
                                     <div class="form-group col-3">
                                         <div class=" mb-4">
                                             <label for="d" class="form-label">Select Your
@@ -244,6 +206,11 @@
                                             class="form-control" data-inputmask="'mask': '99999-9999999-9'"
                                             placeholder="XXXXX-XXXXXXX-X" id="h">
                                     </div>
+                                    <div class="form-group col-12">
+                                        <label for="Address">Address</label>
+                                        <textarea name="address" class="form-control" placeholder="Enter Address"
+                                            rows="5"><?php echo $qfetch['address']; ?></textarea>
+                                    </div>
 
 
 
@@ -253,7 +220,7 @@
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary"
                                         name="Editrecord">Update</button>&nbsp;&nbsp;
-                                    <a href="rxfields.php" class="btn btn-secondary">Add Patient record</a>
+                                    <a href="rxfields.php" class="btn btn-secondary">Add Patient History</a>
                                 </div>
                         </form>
                     </div>
