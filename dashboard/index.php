@@ -59,7 +59,7 @@ mysqli_close($link);
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="/dashboard/addpatients.php" class="small-box-footer">Add Patients <i
+                        <a href="addpatients.php" class="small-box-footer">Add Patients <i
                                 class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
@@ -77,7 +77,7 @@ mysqli_close($link);
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="/dashboard/viewpatients.php" class="small-box-footer">View Patients <i
+                        <a href="viewpatients.php" class="small-box-footer">View Patients <i
                                 class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>

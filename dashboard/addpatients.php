@@ -15,6 +15,7 @@
         $father_husband_name = $_POST["father_husband_name"];
         $patient_image = $_FILES["patient_image"]["name"];
         $age = $_POST["age"];
+        $contact = $_POST["contact_no"];
         $gender = $_POST["gender"];
         $mr_no = $_POST["mr_no"];
         $date = $_POST["date"];
@@ -23,10 +24,10 @@
         $address = $_POST["address"];
 
         if (empty($patient_image)) {
-            $query = "INSERT INTO patients (name, father_husband_name, age, gender, mr_no, date, cnic_no, date_of_birth, patient_image,address) VALUES ('$name', '$father_husband_name', '$age', '$gender', '$mr_no', '$date', '$cnic_no', '$date_of_birth', '$patient_image','$address')";
+            $query = "INSERT INTO patients (name, father_husband_name, age, contact_no, gender, mr_no, date, cnic_no, date_of_birth, patient_image,address) VALUES ('$name', '$father_husband_name', '$age', '$contact', '$gender', '$mr_no', '$date', '$cnic_no', '$date_of_birth', '$patient_image','$address')";
             $run = mysqli_query($link, $query);
         } else {
-            $query = "INSERT INTO patients (name, father_husband_name, patient_image, age, gender, mr_no, date, cnic_no, date_of_birth, address) VALUES ('$name', '$father_husband_name', '$patient_image', '$age', '$gender', '$mr_no', '$date', '$cnic_no', '$date_of_birth', '$address')";
+            $query = "INSERT INTO patients (name, father_husband_name, patient_image, age, contact_no, gender, mr_no, date, cnic_no, date_of_birth, address) VALUES ('$name', '$father_husband_name', '$patient_image', '$age', '$contact', '$gender', '$mr_no', '$date', '$cnic_no', '$date_of_birth', '$address')";
             $run = mysqli_query($link, $query) && move_uploaded_file($_FILES["patient_image"]["tmp_name"], "patientImages/" . $patient_image);
         }
 
@@ -146,10 +147,16 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group col-3">
+                                    <div class="form-group col-4">
                                         <label for="Age">Age</label>
                                         <input type="number" name="age" class="form-control" id="c"
                                             placeholder="Enter Age">
+                                    </div>
+
+                                    <div class="form-group col-4">
+                                        <label for="m">Contact No</label>
+                                        <input type="number" name="contact_no" class="form-control" id="m"
+                                            placeholder="Enter Contact no">
                                     </div>
 
 

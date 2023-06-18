@@ -1,15 +1,12 @@
 <?php require_once 'header.php' ?>
 
-
-
-
 <body>
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.php">Swat Diabetic Clinic<span>.</span></a></h1>
+      <h1 class="logo me-auto me-lg-0"><a href="index.php">Swat Diabetes & foot care clinic<span>.</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -18,7 +15,7 @@
         echo '  <a href="login.php" class="get-started-btn scrollto">LOGIN</a>';
 
       } else {
-        echo '  <a href="/dashboard" class="get-started-btn scrollto">Dashboard</a>';
+        echo '  <a href="dashboard" class="get-started-btn scrollto">Dashboard</a>';
       }
       ?>
 
@@ -31,7 +28,7 @@
   <section id="hero" class="d-flex align-items-center justify-content-center">
     <div class="container" data-aos="fade-up">
 
-      <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+       <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
         <div class="col-xl-12 col-lg-8">
           <h2>Welcome To</h2>
 
@@ -40,6 +37,10 @@
           <h2>Consultant Diabetalogist & Clinical Endocrinologist</h2>
         </div>
       </div>
+
+
+
+      
 
 
     </div>

@@ -113,7 +113,7 @@ if (!isset($_SESSION["email"]) && !isset($_SESSION["password"])) {
             <a href="../index.php" class="brand-link">
                 <img src="../assets/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
-                <span class="brand-text font-weight-light">Swat Diabetic Clinic</span>
+                <span class="brand-text font-weight-light">Swat Diabetes & foot care Clinic</span>
             </a>
 
             <!-- Sidebar -->
@@ -138,7 +138,7 @@ if (!isset($_SESSION["email"]) && !isset($_SESSION["password"])) {
                with font-awesome or any other icon font library -->
 
                         <li class="nav-item">
-                            <a href="/dashboard" class="nav-link active">
+                            <a href="index.php" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -158,13 +158,13 @@ if (!isset($_SESSION["email"]) && !isset($_SESSION["password"])) {
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/dashboard/addpatients.php" class="nav-link active">
+                                    <a href="addpatients.php" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Add Patients</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/dashboard/viewpatients.php" class="nav-link">
+                                    <a href="viewpatients.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>View Patients</p>
                                     </a>
@@ -174,7 +174,7 @@ if (!isset($_SESSION["email"]) && !isset($_SESSION["password"])) {
 
 
                         <li class="nav-item">
-                            <a href="/dashboard/logout.php" class="nav-link">
+                            <a href="logout.php" class="nav-link">
                                 <i class="nav-icon fa fa-sign-out"></i>
                                 <p>
                                     Logout

@@ -100,6 +100,7 @@
                                         <th>Patient_image</th>
                                         <th>Date Of Birth</th>
                                         <th>Age</th>
+                                        <th>Contact No</th>
                                         <th>Gender</th>
 
                                         <th>Date</th>
@@ -153,6 +154,11 @@
                                             <td>
                                                 <?php echo $data['age']; ?>
                                             </td>
+
+                                            <td>
+                                                <?php echo $data['contact_no']; ?>
+                                            </td>
+
                                             <td>
                                                 <?php echo $data['gender']; ?>
                                             </td>
