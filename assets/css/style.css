@@ -413,6 +413,7 @@ h6 {
 }
 
 
+
 @keyframes slide {
   0%{
       background-image: url('../img/doctor-bg.jpg');
@@ -440,6 +441,15 @@ background-image: url('../img/diabeticbfoot2 (1).webp');
 80%{
 background-image: url('../img/diabeticbfoot1.webp');
 }
+
+80.01%{
+  background-image: url('../img/DiabeticFoot_share.jpg');
+  }
+
+100%{
+    background-image: url('../img/DiabeticFoot_share.jpg');
+    }
+  
 }
 
 #hero:before {

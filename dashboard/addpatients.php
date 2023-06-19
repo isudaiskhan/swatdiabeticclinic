@@ -100,7 +100,7 @@
                                         <div class="row justify-content-center">
                                             <div class="small-12 medium-2 large-2 columns pos-rel">
                                                 <div class="circle">
-                                                    <img class="profile_pic" src=" ../../../assets/img/user-icon.jpg">
+                                                    <img class="profile_pic" src=" ../assets/img/user-icon.jpg">
                                                 </div>
                                                 <div class="p-image">
                                                     <i class="fa fa-camera upload-button"></i>
