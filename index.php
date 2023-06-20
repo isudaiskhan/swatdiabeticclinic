@@ -28,7 +28,7 @@
   <section id="hero" class="d-flex align-items-center justify-content-center">
     <div class="container" data-aos="fade-up">
 
-       <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+      <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
         <div class="col-xl-12 col-lg-8">
           <h2>Welcome To</h2>
 
@@ -40,7 +40,7 @@
 
 
 
-      
+
 
 
     </div>
@@ -58,7 +58,7 @@
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" style="display: flex;   flex-direction: column;
     justify-content: center;" data-aos="fade-right" data-aos-delay="100">
-            <h3>Welcome to Swat Diabetic Clinic.</h3>
+            <h3>Welcome to Swat Diabetes & Foot Care Clinic.</h3>
 
             <p>
               The online home of Dr. Muhammad Yaqoob, a renowned consultant diabetologist,
@@ -100,20 +100,20 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>Swat Diabetic Clinic<span>.</span></h3>
+              <h3>SWAT DIABETES & FOOT CARE CLINIC<span>.</span></h3>
               <p>
                 Saidu Group of Teaching Hospital <br>
                 Saidu Sharif, Swat<br><br>
                 <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+
               </p>
-              <div class="social-links mt-3">
+              <!-- <div class="social-links mt-3">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
                 <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
                 <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              </div>
+              </div> -->
             </div>
           </div>
 
@@ -129,7 +129,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Dr Muhammad Yaqoob</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>SWAT DIABETES & FOOT CARE CLINIC</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->

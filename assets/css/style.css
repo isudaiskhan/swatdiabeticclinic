@@ -131,7 +131,7 @@ h6 {
 }
 
 #header .logo {
-  font-size: 32px;
+  font-size: 15px;
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -416,16 +416,16 @@ h6 {
 
 @keyframes slide {
   0%{
-      background-image: url('../img/doctor-bg.jpg');
+      background-image: url('../img/doctor-bg.webp');
   }
   20%{
-    background-image: url('../img/doctor-bg.jpg');
+    background-image: url('../img/doctor-bg.webp');
   }
   20.01%{
-    background-image: url('../img/diabeticbfoot3.jpg');
+    background-image: url('../img/diabeticbfoot3.webp');
 }
 40%{
-  background-image: url('../img/diabeticbfoot3.jpg');
+  background-image: url('../img/diabeticbfoot3.webp');
 }
 
 40.01%{
@@ -443,11 +443,11 @@ background-image: url('../img/diabeticbfoot1.webp');
 }
 
 80.01%{
-  background-image: url('../img/DiabeticFoot_share.jpg');
+  background-image: url('../img/DiabeticFoot_share.webp');
   }
 
 100%{
-    background-image: url('../img/DiabeticFoot_share.jpg');
+    background-image: url('../img/DiabeticFoot_share.webp');
     }
   
 }
