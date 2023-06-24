@@ -416,16 +416,16 @@ h6 {
 
 @keyframes slide {
   0%{
-      background-image: url('../img/doctor-bg.jpg');
+      background-image: url('../img/doctor-bg.webp');
   }
   20%{
-    background-image: url('../img/doctor-bg.jpg');
+    background-image: url('../img/doctor-bg.webp');
   }
   20.01%{
-    background-image: url('../img/diabeticbfoot3.jpg');
+    background-image: url('../img/diabeticbfoot3.webp');
 }
 40%{
-  background-image: url('../img/diabeticbfoot3.jpg');
+  background-image: url('../img/diabeticbfoot3.webp');
 }
 
 40.01%{
@@ -443,11 +443,11 @@ background-image: url('../img/diabeticbfoot1.webp');
 }
 
 80.01%{
-  background-image: url('../img/DiabeticFoot_share.jpg');
+  background-image: url('../img/DiabeticFoot(4).webp');
   }
 
 100%{
-    background-image: url('../img/DiabeticFoot_share.jpg');
+    background-image: url('../img/DiabeticFoot(4).webp');
     }
   
 }

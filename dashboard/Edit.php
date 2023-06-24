@@ -44,6 +44,7 @@
     $name = $_POST["name"];
     $father_husband_name = $_POST["father_husband_name"];
     $age = $_POST["age"];
+    $contact = $_POST["contact_no"];
     $gender = $_POST["gender"];
     $mr_no = $_POST["mr_no"];
     $date = $_POST["date"];
@@ -56,7 +57,7 @@
 
     $patient_image = $_FILES["patient_image"]["name"];
 
-    $queryrun = "UPDATE patients SET name = '$name', father_husband_name = '$father_husband_name', age = '$age', gender = '$gender', mr_no = '$mr_no', date = '$date', cnic_no = '$cnic_no', date_of_birth = '$date_of_birth', address = '$address'";
+    $queryrun = "UPDATE patients SET name = '$name', father_husband_name = '$father_husband_name', age = '$age', contact_no = '$contact', gender = '$gender', mr_no = '$mr_no', date = '$date', cnic_no = '$cnic_no', date_of_birth = '$date_of_birth', address = '$address'";
 
     if (!empty($patient_image)) {
       $patient_image_path = "patientImages/" . $patient_image;
@@ -175,10 +176,16 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group col-3">
+                                    <div class="form-group col-4">
                                         <label for="c">Age</label>
                                         <input type="number" value="<?php echo $qfetch['age']; ?>" name="age"
                                             class="form-control" id="c" placeholder="Enter Your Age">
+                                    </div>
+
+                                    <div class="form-group col-4">
+                                        <label for="m">Contact No</label>
+                                        <input type="number" value="<?php echo $qfetch['contact_no']; ?>" name="contact_no" class="form-control" id="m"
+                                            placeholder="Enter Contact no">
                                     </div>
 
 
