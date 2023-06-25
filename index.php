@@ -52,12 +52,11 @@
         <section id="about" class="about">
             <div class="container" data-aos="fade-up">
 
-                <div class="row">
+<div class="row">
                     <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-                        <img src="assets/img/yaqoob.jpeg" class="img-fluid" alt="">
+                        <img src="assets/img/7d9.wep" class="img-fluid" alt="">
                     </div>
-                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" style="display: flex;   flex-direction: column;
-    justify-content: center;" data-aos="fade-right" data-aos-delay="100">
+                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" style="display: flex;   flex-direction: column;justify-content: center;" data-aos="fade-right" data-aos-delay="100">
                         <h3>Welcome to Swat Diabetes & Foot Care Clinic.</h3>
 
                         <p>

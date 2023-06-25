@@ -91,7 +91,6 @@
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="password" name="my_password" id="b" placeholder="Password"
                                                     required class="form-control" />
-
                                             </div>
                                         </div>
 

@@ -443,11 +443,13 @@ background-image: url('../img/diabeticbfoot1.webp');
 }
 
 80.01%{
-  background-image: url('../img/DiabeticFoot_share.webp');
+
+  background-image: url('../img/DiabeticFoot(4).webp');
   }
 
 100%{
-    background-image: url('../img/DiabeticFoot_share.webp');
+    background-image: url('../img/DiabeticFoot(4).webp');
+
     }
   
 }
