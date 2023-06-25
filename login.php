@@ -74,7 +74,7 @@
 
 
                                         <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-envelope fa-lg me-3 fa-fw fa-beat"></i>
+                                            <i class="fa fa-envelope fa-lg me-3 fa-fw fa-beat"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="email" name="my_email" id="a" placeholder="Your Email "
                                                     required class="form-control" />
@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                                    <img src="draw1.webp" class="img-fluid" alt="Sample image">
+                                    <img src="./assets/img/physician.webp" class="img-fluid" alt="Sample image">
 
 
 

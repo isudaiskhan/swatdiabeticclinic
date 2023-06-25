@@ -180,7 +180,7 @@
                                                 <a href="addFootHistory.php?id=<?php echo $data['id']; ?> "
                                                     class="btn btn-sm btn-primary mb-2"> Add Foot
                                                     History</a>
-                                                <a href="viewPatientsHistory.php?id=<?php echo $data['id']; ?>"
+                                                <a href="viewpatientsHistory.php?id=<?php echo $data['id']; ?>"
                                                     class="btn btn-sm btn-secondary"> View
                                                     History</a>
                                             </td>
