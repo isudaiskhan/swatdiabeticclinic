@@ -182,7 +182,7 @@
                                 <div class="row">
                                     <div class="form-group col-6">
                                         <label for="summernote" class="form-label">Diabetic Foot description</label>
-                                        <textarea class="form-control" name="description"
+                                        <textarea class="form-control" name="description" required
                                             placeholder="Enter Description"></textarea>
                                     </div>
 
@@ -201,7 +201,7 @@
 
                                     <div class="form-group col-2">
                                         <label for="summernote" class="form-label">Diabetic Foot Date</label>
-                                        <input type="date" value="<?php echo date('Y-m-d'); ?>" name="date"
+                                        <input type="date" value="<?php echo date('Y-m-d'); ?>" name="date" required
                                             class="form-control" id="x">
 
                                     </div>

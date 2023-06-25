@@ -182,7 +182,7 @@
                                 <div class="row">
                                     <div class="form-group col-6">
                                         <label for="summernote" class="form-label">Rx</label>
-                                        <textarea class="form-control" name="description"
+                                        <textarea class="form-control" name="description" required
                                             placeholder="Enter Your RX"></textarea>
                                     </div>
 
@@ -201,7 +201,7 @@
 
                                     <div class="form-group col-2">
                                         <label for="summernote" class="form-label">Rx Date</label>
-                                        <input type="date" value="<?php echo date('Y-m-d'); ?>" name="date"
+                                        <input type="date" value="<?php echo date('Y-m-d'); ?>" name="date" required
                                             class="form-control" id="x">
 
                                     </div>
@@ -238,17 +238,17 @@
 </div>
 
 <script>
-$(":input").inputmask();
+    $(":input").inputmask();
 
-$(document).ready(function() {
-    var t = $('#summernote').summernote({
-        height: 200,
-        focus: true
+    $(document).ready(function () {
+        var t = $('#summernote').summernote({
+            height: 200,
+            focus: true
+        });
+        $("#btn").click(function () {
+            $('div.note-editable').height(150);
+        });
     });
-    $("#btn").click(function() {
-        $('div.note-editable').height(150);
-    });
-});
 </script>
 
 

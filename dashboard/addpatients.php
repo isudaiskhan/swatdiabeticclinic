@@ -153,7 +153,7 @@
                                             placeholder="Enter Age">
                                     </div>
 
-                                    <div class="form-group col-4">
+                                    <div class="form-group col-5">
                                         <label for="m">Contact No</label>
                                         <input type="number" name="contact_no" class="form-control" id="m"
                                             placeholder="Enter Contact no">
@@ -161,7 +161,7 @@
 
 
 
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-4">
                                         <label for="Date OF Birth">Date OF Birth </label>
                                         <input type="date" name="date_of_birth" class="form-control" id="i"
                                             placeholder="Enter Date OF Birth">
@@ -169,7 +169,7 @@
 
 
 
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-4">
                                         <label for="Date">Date</label>
                                         <input type="date" name="date" class="form-control" id="g"
                                             value="<?php echo date('Y-m-d'); ?>" placeholder="Enter Date">
@@ -177,7 +177,7 @@
 
 
 
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-4">
                                         <label for="CNIC">CNIC NO</label>
                                         <input type="text" name="cnic_no" class="form-control"
                                             data-inputmask="'mask': '99999-9999999-9'" placeholder="XXXXX-XXXXXXX-X"
